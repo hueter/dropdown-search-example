@@ -2,32 +2,33 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-flow: column nowrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+  padding: 0.5em;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+}
+
+.results-box {
+  position: absolute;
+  left: 40%;
+  top: 1em;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+}
+
+.results-box > li {
 }

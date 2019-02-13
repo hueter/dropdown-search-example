@@ -1,25 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import SearchForm from './SearchForm';
+import DropdownTextSearch from './DropdownTextSearch';
+import { searchColors } from './api';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="container">
+        <SearchForm
+          fetchData={searchColors}
+          onSubmit={data => {
+            console.log('Posted', data);
+          }}
+        >
+          {({ searchFormState, fetchData, handleChange, handleSubmit }) => {
+            return (
+              <div className="row">
+                <DropdownTextSearch
+                  topic="CSS Colors"
+                  searchFormState={searchFormState}
+                  handleChange={handleChange}
+                  fetchData={fetchData}
+                />
+                <button onClick={() => handleSubmit(searchFormState.term)}>
+                  Submit
+                </button>
+              </div>
+            );
+          }}
+        </SearchForm>
       </div>
     );
   }
